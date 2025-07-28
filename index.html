@@ -2,35 +2,51 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokedex</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokedex</title>
 
-    <!-- Scripts/templates must always be included before the normal scripts.js! -->
-    <link rel="icon" type="image/x-icon" href="./assets/icon/pokeapi_256.3fa72200.png">
-    <script src="remoteStorage.js"></script>
-
-    <!-- Embedding the favicon -->
-
-    <!-- Embedding the css -->
-    <link rel="stylesheet" href="style.css" />
-
+  <link rel="icon" type="image/x-icon" href="./assets/icon/pokeapi_256.3fa72200.png" />
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 
-<body onload="onloadFunc()">
-    <div id="pokemon-overlay" class="overlay hidden">
-        <div class="overlay-content">
-            <div class="overlay-header">
-                <button id="left-arrow" onclick="showPreviousPokemon()">←</button>
-                <span id="overlay-pokemon-name"></span>
-                 <button id="right-arrow" onclick="showNextPokemon()">→</button>
-                <button onclick="closeOverlay()">X</button>
-            </div>
-            <div class="overlay-details" id="overlay-details"></div>
-        </div>
+<body>
+  <header>
+    <h1>Pokedex</h1>
+    <p>Hier findest du alle Pokémon!</p>
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Nach Pokémon suchen..."
+    />
+    <p id="search-hint" class="search-hint hidden">
+      Bitte mindestens 3 Buchstaben eingeben
+    </p>
+    <p id="search-error" class="search-error hidden">
+      Keine Pokémon gefunden
+    </p>
+    <button id="reset-button" class="hidden">Zurücksetzen</button>
+  </header>
+
+  <div id="pokemon-overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <div class="overlay-header">
+        <button id="left-arrow">←</button>
+        <span id="overlay-pokemon-name"></span>
+        <button id="right-arrow">→</button>
+        <button id="close-overlay">X</button>
+      </div>
+      <div class="overlay-details" id="overlay-details"></div>
     </div>
-    <section id="main_content"></section>
-    <button id="load-more" onclick="loadMorePokemon()">Mehr anzeigen</button>
+  </div>
+
+  <section id="main_content"></section>
+  <button id="load-more">Mehr anzeigen</button>
+
+  <footer></footer>
+
+  <!-- Nur ein einziger Einstiegspunkt in dein modulares JS -->
+  <script type="module" src="./js/app.js"></script>
 </body>
 
 </html>
