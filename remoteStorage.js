@@ -15,12 +15,23 @@ async function loadPokemonNames() {
 
   data.results.forEach(item => {
     const cardHTML = `
-      <div class="pokemon-card">
+      <div class="pokemon-card" onclick="showOverlay('${item.name}')">
       <div class="pokemon-name">${item.name}</div>
       </div>
     `;
     container.innerHTML += cardHTML;
   });
+}
+
+function showOverlay(pokemonName) {
+  const overlay = document.getElementById('pokemon-overlay');
+  const nameContainer = document.getElementById('overlay-pokemon-name');
+  nameContainer.textContent = pokemonName;
+  overlay.classList.remove('hidden');
+}
+
+function closeOverlay() {
+  document.getElementById('pokemon-overlay').classList.add('hidden');
 }
 
 function loadMorePokemon() {

@@ -18,7 +18,15 @@
 </head>
 
 <body onload="onloadFunc()">
-
+    <div id="pokemon-overlay" class="overlay hidden">
+        <div class="overlay-content">
+            <div class="overlay-header">
+                <span id="overlay-pokemon-name"></span>
+                <button onclick="closeOverlay()">X</button>
+            </div>
+            <!-- Hier später weitere Infos -->
+        </div>
+    </div>
     <section id="main_content"></section>
     <button id="load-more" onclick="loadMorePokemon()">Mehr anzeigen</button>
 </body>
