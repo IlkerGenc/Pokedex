@@ -43,3 +43,16 @@ function renderDetails(pokemon) {
       <ul>${stats}</ul>
     </div>`;
 }
+
+const overlay = document.getElementById('pokemon-overlay');
+const closeBtn = document.getElementById('close-overlay');
+
+closeBtn.addEventListener('click', () => {
+  closeOverlay();
+});
+
+overlay.addEventListener('click', (event) => {
+  if (event.target === overlay) {
+    closeOverlay();
+  }
+});

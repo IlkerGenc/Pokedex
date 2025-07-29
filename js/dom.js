@@ -4,8 +4,13 @@ import { showOverlay } from './overlay.js';
 
 export function renderPokemonCards(pokemonList = allPokemon) {
   const container = document.getElementById('main_content');
+  console.log('🔧 Container gefunden:', container);
+  if (!container) {
+    console.error('❌ #main_content wurde nicht im DOM gefunden!');
+  }
+  
   container.innerHTML = '';
-
+  
   pokemonList.forEach((pokemon, index) => {
     const id = String(pokemon.id).padStart(3, '0');
     const name = capitalize(pokemon.name);
