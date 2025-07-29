@@ -1,6 +1,8 @@
+import { typeColors } from './colors.js';
 import { capitalize } from './utils.js';
 import { allPokemon } from './state.js';
 import { showOverlay } from './overlay.js';
+
 
 export function renderPokemonCards(pokemonList = allPokemon) {
   const container = document.getElementById('main_content');
@@ -8,9 +10,9 @@ export function renderPokemonCards(pokemonList = allPokemon) {
   if (!container) {
     console.error('❌ #main_content wurde nicht im DOM gefunden!');
   }
-  
+
   container.innerHTML = '';
-  
+
   pokemonList.forEach((pokemon, index) => {
     const id = String(pokemon.id).padStart(3, '0');
     const name = capitalize(pokemon.name);
@@ -19,6 +21,9 @@ export function renderPokemonCards(pokemonList = allPokemon) {
 
     const card = document.createElement('div');
     card.classList.add('pokemon-card');
+
+    const primaryType = pokemon.types[0].type.name;
+    card.style.backgroundColor = typeColors[primaryType] || '#f8f8f8'; // Fallback-Farbe
 
     // Setze die Inhalte der Card
     card.innerHTML = `
