@@ -16,11 +16,10 @@
   <div class="page-wrapper">
     <header>
       <div class="header_logo_area">
-        <img src="./assets/icon/pokeapi_logo.png" alt="">
-        <img class="logo_icon" src="./assets/img/pokeball_color.png" alt="">
+        <span class="logo">POKEDEX</span>
       </div>
       <div class="header_search_area">
-        <p>Hier findest du alle Pokémon!</p>
+
         <input type="text" id="search-input" placeholder="Nach Pokémon suchen..." />
         <p id="search-hint" class="search-hint hidden">
           Bitte mindestens 3 Buchstaben eingeben
@@ -35,9 +34,7 @@
     <div id="pokemon-overlay" class="overlay hidden">
       <div class="overlay-content">
         <div class="overlay-header">
-          <button id="left-arrow">←</button>
           <span id="overlay-pokemon-name"></span>
-          <button id="right-arrow">→</button>
           <button id="close-overlay">X</button>
         </div>
         <div class="overlay-details" id="overlay-details"></div>

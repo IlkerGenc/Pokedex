@@ -13,6 +13,16 @@ html {
   scroll-behavior: smooth;
 }
 
+.logo {
+  font-style: calibri;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
+}
+
 html,
 body {
   margin: 0px;
@@ -26,8 +36,8 @@ body {
 }
 
 
-.pokemon-id{
-  display:none;
+.pokemon-id {
+  display: none;
 }
 
 .overlay {
@@ -219,7 +229,8 @@ footer p {
   background-image: url(/assets/img/pokeball.svg);
   background-repeat: no-repeat;
   background-position: bottom left;
-  background-size: 150%; /* größer als Container für angeschnittenen Effekt */
+  background-size: 150%;
+  /* größer als Container für angeschnittenen Effekt */
   opacity: 0.25;
   z-index: -1;
 }
@@ -279,7 +290,8 @@ footer p {
 
 .pokemon-types {
   display: flex;
-  gap: 6px; /* Abstand zwischen den Boxen */
+  gap: 6px;
+  /* Abstand zwischen den Boxen */
   flex-wrap: wrap;
   margin-top: 4px;
 }
@@ -287,21 +299,163 @@ footer p {
 .ability-box {
   padding: 4px 8px;
   border-radius: 12px;
-  background-color: rgba(0, 0, 0, 0.1); /* oder was dir passt */
+  background-color: rgba(0, 0, 0, 0.1);
+  /* oder was dir passt */
   color: #ffffff;
   font-size: 22px;
-  font-style:bold;
+  font-style: bold;
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
-  white-space: nowrap; /* Verhindert Zeilenumbruch innerhalb einer Box */
+  white-space: nowrap;
+  /* Verhindert Zeilenumbruch innerhalb einer Box */
+}
+
+
+.overlay-content {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  min-height: 600px;
+}
+
+.overlay-content::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 150%;
+  height: 150%;
+  background-image: url('/assets/img/pokeball.svg');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 150%;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.overlay-upper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 100;
+  position: relative;
+}
+
+.overlay-upper img {
+  max-width: 80%;
+  height: auto;
+}
+
+.overlay-lower {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.overlay-lower p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+.overlay-lower ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0;
+}
+
+.overlay-lower ul li {
+  background: #f1f1f1;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.abilities {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .ability-box-overlay {
-  padding: 4px 8px;
-  border-radius: 12px;
-  background-color: rgba(0, 0, 0, 0.1); /* oder was dir passt */
-  color: #000000;
-  font-size: 22px;
-  font-style:bold;
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
-  white-space: nowrap; /* Verhindert Zeilenumbruch innerhalb einer Box */
+  background: #e0e0e0;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: #333;
+}
+
+.abilities-label {
+  font-weight: 600;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.abilities-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0;
+  flex-wrap: wrap; /* falls zu lang, Zeilenumbruch */
+}
+
+.pokemon-name-lower {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  color: #222;
+}
+
+.overlay-content>* {
+  position: relative;
+  z-index: 1;
+  /* stellt sicher, dass Text und Bilder über dem Pokéball liegen */
+}
+
+.arrow-controls {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.arrow-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(145deg, #3b4cca, #2a75bb);
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.arrow-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-button:disabled {
+  background: #ccc;
+  cursor: default;
+  box-shadow: none;
+  transform: none;
+  opacity: 0.5;
 }
