@@ -28,9 +28,6 @@ export async function showOverlay(index) {
   document.getElementById('right-arrow').disabled = index === allPokemon.length - 1;
 
   // Event Listener setzen
-  document.getElementById('left-arrow').addEventListener('click', showPreviousPokemon);
-  document.getElementById('right-arrow').addEventListener('click', showNextPokemon);
-
   document.getElementById('pokemon-overlay').classList.remove('hidden');
 }
 

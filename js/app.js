@@ -78,10 +78,17 @@ window.onload = async () => {
   });
 
   // 5. Overlay-Buttons
-  document.getElementById('left-arrow').addEventListener('click', showPreviousPokemon);
-  document.getElementById('right-arrow').addEventListener('click', showNextPokemon);
-  document.getElementById('close-overlay').addEventListener('click', closeOverlay);
-};
+    const overlay = document.getElementById('pokemon-overlay');
+  overlay.addEventListener('click', (event) => {
+    if (event.target.id === 'left-arrow') {
+      showPreviousPokemon();
+    } else if (event.target.id === 'right-arrow') {
+      showNextPokemon();
+    } else if (event.target.id === 'close-overlay') {
+      closeOverlay();
+    }
+});
+}
 
 // Optional: Globale Funktion für die onclick im Card-HTML
 // Das brauchst du, weil `onclick="showOverlay(x)"` in deinem `dom.js` generiert wird

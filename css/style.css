@@ -138,8 +138,8 @@ header p {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  padding-bottom: 80px;
-  margin: 50px 100px;
+  padding: 0 16px 80px; /* top, horizontal, bottom */
+  margin-top:10px;
 }
 
 .spinner {
@@ -217,6 +217,7 @@ footer p {
   background-color: #fff;
   overflow: hidden;
   z-index: 0;
+  margin:0px;
 }
 
 .pokemon-card::before {

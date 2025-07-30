@@ -1,158 +1,127 @@
-@media (max-width: 740px) {
-  /* Gesamtseite */
-  .page-wrapper {
-    padding: 0;
-    background-size: cover;
-    background-position: center;
+/* responsive.css */
+@media (max-width: 360px) {
+  .overlay-content {
+    margin: 0 10px; /* links/rechts je 10px Abstand */
+  }
+}
+/* Kleine Bildschirme (Handys) */
+@media (max-width: 600px) {
+  #main_content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    padding: 0 16px;
+    justify-items: center;
   }
 
-  /* Header */
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 20px;
+  .pokemon-card {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 3 / 4;
+    height: auto;
   }
 
-  .header_logo_area img {
-    width: 120px;
+  .pokemon-card img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+  /* Overlay */
+  .overlay-content {
+    max-width: 95vw !important;
+    padding: 15px !important;
   }
 
+  .overlay-upper img {
+    max-width: 80vw !important;
+    height: auto !important;
+  }
+
+  /* Weißer Bereich (overlay-lower) */
+  .overlay-lower {
+    font-size: 14px !important;
+    padding: 10px !important;
+  }
+
+  /* Abilities und Pfeile */
+  .abilities {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .ability-box-overlay {
+    font-size: 11px !important;
+    padding: 4px 7px !important;
+  }
+
+  .arrow-controls {
+    justify-content: center !important;
+    margin-top: 10px !important;
+  }
+
+  /* Pfeile als größere Kreise */
+  .arrow-button {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.4rem !important;
+    border-radius: 50% !important;
+  }
+
+
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  #main_content {
+
+   
+  
+  }
+
+  .pokemon-card img {
+    
+  }
+
+  .overlay-content {
+    
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+}
+
+/* Mobile-Optimierung: Suchleiste unter Logo */
+@media (max-width: 500px) {
   .header_search_area {
     width: 100%;
+    order: 2; /* unter das Logo */
   }
 
   #search-input {
     width: 100%;
-    font-size: 1rem;
-    padding: 10px;
+    box-sizing: border-box;
   }
 
-  /* Hauptinhalt Grid (Karten) */
-  #main_content {
-    display: flex
-;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .pokemon-card {
-    padding: 16px;
-    border-radius: 20px;
-    font-size: 1rem;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    position: relative;
-  }
-
-  .pokemon-card img {
-    width: 100px;
-    margin: 0 auto;
-  }
-
-  .pokemon-id {
-    position: absolute;
-    top: 10px;
-    right: 16px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.3);
-  }
-
-  .pokemon-name {
-    font-size: 1.1rem;
-    margin-top: 10px;
-    font-weight: 600;
-    color: #333;
-  }
-
-  .pokemon-types {
-    margin-top: 6px;
-    font-size: 0.85rem;
-    color: #666;
-  }
-
-  /* Load More Button */
-  .load-more-container {
-    margin-top: 0;
-  }
-
-  #load-more {
-    width: 80%;
-    padding: 12px;
-    font-size: 1rem;
-    border-radius: 16px;
-    top: 0;
-    margin: 24px auto 0;
-    display: block;
-  }
-
-  /* Overlay / Detailansicht */
-  .overlay-content {
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: 24px;
-    padding: 20px;
-  }
-
-  .overlay-details-content img {
-    width: 140px;
-    display: block;
-    margin: 0 auto 20px;
-  }
-
-  .overlay-details-content p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    color: #333;
-  }
-
-  .overlay-details-content ul {
-    padding-left: 16px;
-    font-size: 0.9rem;
-  }
-
-  .overlay-header {
-    justify-content: space-between;
-    margin-bottom: 12px;
-  }
-
-  .overlay-header span {
-    font-size: 1.2rem;
-    color: #333;
-  }
-
-  .overlay-header button {
-    font-size: 1.2rem;
-    padding: 6px 10px;
-  }
-
-  /* Suchhinweis & Fehler */
-  .search-hint,
-  .search-error {
-    font-size: 0.85rem;
-    padding-left: 4px;
-  }
-
-  /* Footer */
-  footer {
-    font-size: 0.85rem;
-    height: auto;
-    padding: 12px 0;
-  }
-}
-
-@media (max-width: 620px) {
-  .main_content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .pokemon-card {
+  .header_logo_area {
     width: 100%;
-    max-width: 300px; /* optional: Begrenzung für große Displays */
+    text-align: center;
+    order: 1;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .search-hint,
+  .search-error,
+  #reset-button {
+    text-align: left;
+    font-size: 14px;
   }
 }
