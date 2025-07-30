@@ -33,16 +33,19 @@ function renderDetails(pokemon) {
 
   return `
     <div class="overlay-details-content">
-      <img src="${pokemon.sprites.other['official-artwork'].front_default}" alt="${pokemon.name}" width="120">
+      <img src="${pokemon.sprites.other['official-artwork'].front_default}" alt="${pokemon.name}" width="auto">
       <p><strong>ID:</strong> ${pokemon.id}</p>
       <p><strong>Type:</strong> ${pokemon.types.map(t => t.type.name).join(', ')}</p>
       <p><strong>Height:</strong> ${pokemon.height / 10} m</p>
       <p><strong>Weight:</strong> ${pokemon.weight / 10} kg</p>
-      <p><strong>Abilities:</strong> ${pokemon.abilities.map(a => a.ability.name).join(', ')}</p>
+      <p><strong>Abilities:</strong></p>
+        <div class="abilities">${pokemon.abilities.map(a => `<span class="ability-box-overlay">${a.ability.name}</span>`).join('')}</div>
       <p><strong>Stats:</strong></p>
       <ul>${stats}</ul>
     </div>`;
 }
+
+
 
 const overlay = document.getElementById('pokemon-overlay');
 const closeBtn = document.getElementById('close-overlay');

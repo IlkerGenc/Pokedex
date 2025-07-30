@@ -6,7 +6,6 @@ import { showOverlay } from './overlay.js';
 
 export function renderPokemonCards(pokemonList = allPokemon) {
   const container = document.getElementById('main_content');
-  console.log('🔧 Container gefunden:', container);
   if (!container) {
     console.error('❌ #main_content wurde nicht im DOM gefunden!');
   }
@@ -17,23 +16,24 @@ export function renderPokemonCards(pokemonList = allPokemon) {
     const id = String(pokemon.id).padStart(3, '0');
     const name = capitalize(pokemon.name);
     const image = pokemon.sprites.other['official-artwork'].front_default;
-    const types = pokemon.types.map(t => t.type.name).join(', ');
+
+    const typesHtml = pokemon.types
+      .map(t => `<span class="ability-box">${t.type.name}</span>`) // Jede Type in eigenem span
+      .join(''); // Ohne Komma, direkt hintereinander, CSS sorgt für Abstand
 
     const card = document.createElement('div');
     card.classList.add('pokemon-card');
 
     const primaryType = pokemon.types[0].type.name;
-    card.style.backgroundColor = typeColors[primaryType] || '#f8f8f8'; // Fallback-Farbe
+    card.style.backgroundColor = typeColors[primaryType] || '#f8f8f8';
 
-    // Setze die Inhalte der Card
     card.innerHTML = `
       <div class="pokemon-id">#${id}</div>
       <div class="pokemon-name">${name}</div>
       <div class="pokemon-img"><img src="${image}" alt="${name}" width="120"></div>
-      <div class="pokemon-types">${types}</div>
+      <div class="pokemon-types">${typesHtml}</div>
     `;
 
-    // Füge den Click-Eventlistener hinzu
     card.addEventListener('click', () => showOverlay(index));
 
     container.appendChild(card);

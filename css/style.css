@@ -18,24 +18,16 @@ body {
   margin: 0px;
 }
 
-.pokemon-card {
-  position: relative;
-  width: 200px;
-  height: 120px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin: 10px;
-  padding: 8px;
-  background-color: #f8f8f8;
-  display: inline-block;
-}
-
 .pokemon-name {
   position: absolute;
   top: 8px;
-  right: 8px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 25px;
+}
+
+
+.pokemon-id{
+  display:none;
 }
 
 .overlay {
@@ -133,14 +125,11 @@ header p {
 }
 
 #main_content {
-  flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   padding-bottom: 80px;
-  margin-right: 150px;
-  margin-left: 150px;
-  /* background: url('/assets/backgrounds/13107746_5134336.jpg') center/cover no-repeat; */
+  margin: 50px 100px;
 }
 
 .spinner {
@@ -205,8 +194,9 @@ footer p {
 }
 
 .pokemon-card {
-  height: 400px;
+  position: relative;
   width: 250px;
+  height: 400px;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -214,24 +204,24 @@ footer p {
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden;
+  z-index: 0;
 }
 
 .pokemon-card::before {
-  background-image: url('pokeball.png');
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(/assets/img/pokeball.svg);
   background-repeat: no-repeat;
-  background-size: 80% auto;
-  /* passt die Größe innerhalb der Karte an */
-  background-position: center center;
-  background-color: rgba(255, 255, 255, 0.2);
-  /* optionaler Overlay-Effekt */
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background-position: bottom left;
+  background-size: 150%; /* größer als Container für angeschnittenen Effekt */
+  opacity: 0.25;
+  z-index: -1;
 }
 
 .pokemon-card img {
@@ -274,7 +264,8 @@ footer p {
 }
 
 #load-more:hover {
-  font-size: 1.05rem; /* statt transform */
+  font-size: 1.05rem;
+  /* statt transform */
   background: linear-gradient(145deg, #2a3ba8, #3b4cca);
   box-shadow: 0 8px 16px rgba(59, 76, 202, 0.4);
 }
@@ -284,4 +275,33 @@ footer p {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+.pokemon-types {
+  display: flex;
+  gap: 6px; /* Abstand zwischen den Boxen */
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.ability-box {
+  padding: 4px 8px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.1); /* oder was dir passt */
+  color: #ffffff;
+  font-size: 22px;
+  font-style:bold;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+  white-space: nowrap; /* Verhindert Zeilenumbruch innerhalb einer Box */
+}
+
+.ability-box-overlay {
+  padding: 4px 8px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.1); /* oder was dir passt */
+  color: #000000;
+  font-size: 22px;
+  font-style:bold;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+  white-space: nowrap; /* Verhindert Zeilenumbruch innerhalb einer Box */
 }
