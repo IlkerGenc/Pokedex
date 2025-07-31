@@ -258,7 +258,6 @@ footer p {
 #load-more {
   position: relative;
   top: -40px;
-  /* nach oben schieben */
   margin-top: 0;
   background: linear-gradient(145deg, #3b4cca, #2a3ba8);
   color: #fff;
