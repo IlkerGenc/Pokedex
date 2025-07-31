@@ -72,20 +72,6 @@
 
 
 @media (min-width: 601px) and (max-width: 1024px) {
-  #main_content {
-
-   
-  
-  }
-
-  .pokemon-card img {
-    
-  }
-
-  .overlay-content {
-    
-  }
-}
 
 header {
   display: flex;
@@ -124,4 +110,5 @@ header {
     text-align: left;
     font-size: 14px;
   }
+}
 }
